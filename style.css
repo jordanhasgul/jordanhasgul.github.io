@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+    --font-mono: ui-monospace, monospace;
+
+    --color-crt-gray: #050a05;
+    --color-crt-gray-light: #0a140a;
+
+    --color-crt-green: #33ff00;
+    --color-crt-green-dim: #1a8c1a;
+    --color-crt-green-bright: #66ff33;
+
+    --color-crt-amber: #ff9900;
+    --color-crt-amber-dim: #995c00;
+
+    --color-crt-white: #a0b0a0;
+    --color-crt-red: #ff3333;
+}
