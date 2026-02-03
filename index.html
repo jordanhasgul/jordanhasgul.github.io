@@ -9,47 +9,70 @@
     <link rel="stylesheet" href="style.min.css" />
   </head>
   <body>
-    <header>
-      <pre>
-                 _               _               _                           _
-                (_) ___  _ __ __| | __ _ _ __   | |__   __ _ ___  __ _ _   _| |
-                | |/ _ \| '__/ _` |/ _` | '_ \  | '_ \ / _` / __|/ _` | | | | |
-                | | (_) | | | (_| | (_| | | | | | | | | (_| \__ \ (_| | |_| | |
-               _/ |\___/|_|  \__,_|\__,_|_| |_| |_| |_|\__,_|___/\__, |\__,_|_|
-              |__/                                               |___/
-            </pre
-      >
-      <p>
-        INSPIRED BY
-        <a href="https://www.youtube.com/watch?v=1BRz_s3Zvaw"
-          >Alien: Isolation</a
-        >
-      </p>
-    </header>
 
-    <main id="terminal"></main>
+    
+    <!-- CRT Monitor -->
+    <div class="crt-monitor">
+      
+      <!-- Screen Area -->
+      <div class="crt-screen">
+        
+        <!-- Screen Background -->
+        <div class="crt-screen-bg"></div>
+        
+        <!-- Scanlines -->
+        <div class="crt-scanlines"></div>
+        
+        <!-- Vignette -->
+        <div class="crt-vignette"></div>
+        
+        <!-- Content -->
+        <div class="crt-content">
+          
+          <!-- Header -->
+          <header>
+            <pre class="ascii-art">
+ _               _               _                           _
+(_) ___  _ __ __| | __ _ _ __   | |__   __ _ ___  __ _ _   _| |
+| |/ _ \| '__/ _` |/ _` | '_ \  | '_ \ / _` / __|/ _` | | | | |
+| | (_) | | | (_| | (_| | | | | | | | | (_| \__ \ (_| | |_| | |
+_/ |\___/|_|  \__,_|\__,_|_| |_| |_| |_|\__,_|___/\__, |\__,_|_|
+|__/                                               |___/</pre>
+            <p class="subtitle">
+              Inspired by
+              <a href="https://www.youtube.com/watch?v=1BRz_s3Zvaw">Alien: Isolation</a>
+            </p>
+          </header>
 
-    <footer>
-        &copy; Jordan Hasgul 2025 — Type "help" for commands.
-    </footer>
+          <!-- Terminal -->
+          <main id="terminal"></main>
+
+          <!-- Footer -->
+          <footer>
+            &copy; Jordan Hasgul 2025 — Type "help" for commands.
+          </footer>
+          
+        </div>
+      </div>
+    </div>
 
     <script>
       const INPUT_HTML = `
-                <div id="input-area">
-                    <span>visitor@jordan: ~</span>
-                    <input id="input" type="text" autofocus autocomplete="off" spellcheck="false">
-                </div>
-            `;
+        <div class="input-line">
+          <span class="prompt">></span>
+          <input id="input" type="text" autofocus autocomplete="off" spellcheck="false">
+        </div>
+      `;
       const getOutputHTML = (command) => `
-                <div >
-                    <span >&gt;</span>
-                    <span >${command}</span>
-                </div>
+        <div class="input-line">
+          <span class="prompt">></span>
+          <span>${command}</span>
+        </div>
 
-                <div id="output-area"></div>
+        <div id="output-area"></div>
 
-                ${INPUT_HTML}
-            `;
+        ${INPUT_HTML}
+      `;
 
       const VALID_COMMANDS = ["help"];
 
