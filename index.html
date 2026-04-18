@@ -1,125 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>Jordan Hasgul — Software Engineer</title>
+    <title>Jordan Hasgul</title>
 
-    <link rel="stylesheet" href="style.min.css" />
+    <link rel="stylesheet" href="style.min.css"/>
   </head>
   <body>
-
-    
-    <!-- CRT Monitor -->
-    <div class="crt-monitor">
-      
-      <!-- Screen Area -->
-      <div class="crt-screen">
-        
-        <!-- Screen Background -->
-        <div class="crt-screen-bg"></div>
-        
-        <!-- Scanlines -->
-        <div class="crt-scanlines"></div>
-        
-        <!-- Vignette -->
-        <div class="crt-vignette"></div>
-        
-        <!-- Content -->
-        <div class="crt-content">
-          
-          <!-- Header -->
-          <header>
-            <pre class="ascii-art">
- _               _               _                           _
-(_) ___  _ __ __| | __ _ _ __   | |__   __ _ ___  __ _ _   _| |
-| |/ _ \| '__/ _` |/ _` | '_ \  | '_ \ / _` / __|/ _` | | | | |
-| | (_) | | | (_| | (_| | | | | | | | | (_| \__ \ (_| | |_| | |
-_/ |\___/|_|  \__,_|\__,_|_| |_| |_| |_|\__,_|___/\__, |\__,_|_|
-|__/                                               |___/</pre>
-            <p class="subtitle">
-              Inspired by
-              <a href="https://www.youtube.com/watch?v=1BRz_s3Zvaw">Alien: Isolation</a>
-            </p>
-          </header>
-
-          <!-- Terminal -->
-          <main id="terminal"></main>
-
-          <!-- Footer -->
-          <footer>
-            &copy; Jordan Hasgul 2025 — Type "help" for commands.
-          </footer>
-          
-        </div>
-      </div>
-    </div>
-
-    <script>
-      const INPUT_HTML = `
-        <div class="input-line">
-          <span class="prompt">></span>
-          <input id="input" type="text" autofocus autocomplete="off" spellcheck="false">
-        </div>
-      `;
-      const getOutputHTML = (command) => `
-        <div class="input-line">
-          <span class="prompt">></span>
-          <span>${command}</span>
-        </div>
-
-        <div id="output-area"></div>
-
-        ${INPUT_HTML}
-      `;
-
-      const VALID_COMMANDS = ["help"];
-
-      function getCommand(event) {
-        const targetElement = event.target;
-        return targetElement.value.trim().toLowerCase();
-      }
-
-      function showOutputForCommand(command) {
-        const main = document.getElementById("terminal");
-        main.innerHTML = getOutputHTML(command);
-
-        const outputArea = document.getElementById("output-area");
-        if (!VALID_COMMANDS.includes(command)) {
-          command = "unknown";
-        }
-
-        fetch(`commands/${command}.html`)
-          .then((response) => response.text())
-          .then((html) => (outputArea.innerHTML = html));
-
-        registerCommandHandler();
-      }
-
-      function registerCommandHandler() {
-        const inputElement = document.getElementById("input");
-        inputElement.addEventListener("keydown", handleCommand);
-        inputElement.focus();
-      }
-
-      function handleCommand(event) {
-        if (event.key !== "Enter") {
-          return;
-        }
-
-        const command = getCommand(event);
-        if (command === "") {
-          return;
-        }
-
-        showOutputForCommand(command);
-      }
-
-      const main = document.getElementById("terminal");
-      main.innerHTML = INPUT_HTML;
-
-      registerCommandHandler();
-    </script>
   </body>
 </html>
