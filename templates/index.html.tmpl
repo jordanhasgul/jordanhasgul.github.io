@@ -36,7 +36,15 @@
       <section>
         <h2>My posts</h2>
         <ul>
+          {{- range .}}
+          <li>
+            <time datetime="{{.Date.Format "2006-01-02"}}">{{.Date.Format "2 January 2006"}}</time>
+            &mdash;
+            <a href="/posts/{{.Slug}}.html">{{.Title}}</a>
+          </li>
+          {{- else}}
           <li>No posts yet.</li>
+          {{- end}}
         </ul>
       </section>
     </main>

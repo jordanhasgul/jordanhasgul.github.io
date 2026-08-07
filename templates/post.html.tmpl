@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>Jordan Hasgul</title>
+    <title>{{.Title}} &middot; Jordan Hasgul</title>
 
     <link rel="stylesheet" href="/style.min.css"/>
   </head>
@@ -14,31 +14,13 @@
     </header>
 
     <main>
-      <section>
-        <h2>About me</h2>
+      <article>
+        <h2>{{.Title}}</h2>
+        <p><time datetime="{{.Date.Format "2006-01-02"}}">{{.Date.Format "2 January 2006"}}</time></p>
+        {{.Body}}
+      </article>
 
-        <p>
-          Hey 👋, I'm a computer scientist and software engineer based in London, UK.
-        </p>
-
-        <p>
-          Whilst my area of expertise is in building scalable and fault-tolerant distributed systems, my interests lie
-          in the broader craft of software engineering. To me, it is a craft of abstraction - designing models of
-          reality that extract the essence of the problem to be solved.
-        </p>
-
-        <p>
-          I'll use this blog to articulate and share my opinions on software engineering (and sometimes on computer
-          science).
-        </p>
-      </section>
-
-      <section>
-        <h2>My posts</h2>
-        <ul>
-          <li>No posts yet.</li>
-        </ul>
-      </section>
+      <p><a href="/">&larr; Back to home</a></p>
     </main>
 
     <footer>
