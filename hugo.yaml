@@ -1,4 +1,3 @@
-baseURL: "https://jordanhasgul.github.io/"
 title: "Jordan Hasgul"
 locale: "en-gb"
 
@@ -12,7 +11,6 @@ markup:
 
 params:
   centerTheme: true
-  subtitle: "computer scientist & software engineer"
   owner: Jordan Hasgul
   logo:
     logoText: "Jordan Hasgul"
