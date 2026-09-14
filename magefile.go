@@ -10,9 +10,23 @@ import (
 	"github.com/magefile/mage/sh"
 )
 
-type Posts mg.Namespace
+type Blog mg.Namespace
 
-func (Posts) Create(title string) error {
+func (Blog) Serve(watch *bool) error {
+	args := []string{"serve"}
+	if watch != nil && *watch {
+		args = append(args, "-w")
+	}
+
+	err := sh.RunV("hugo", args...)
+	if err != nil {
+		return fmt.Errorf("serving blog: %w", err)
+	}
+
+	return nil
+}
+
+func (Blog) CreatePost(title string) error {
 	if title == "" {
 		return errors.New("title is missing")
 	}
