@@ -31,8 +31,8 @@ func (Blog) CreatePost(title string) error {
 		return errors.New("title is missing")
 	}
 
-	fileName := fmt.Sprintf("%s.md", title)
-	err := sh.RunV("hugo", "new", "content", "posts/"+fileName)
+	file := fmt.Sprintf("posts/%s.md", title)
+	err := sh.RunV("hugo", "new", "content", file)
 	if err != nil {
 		return fmt.Errorf("creating post: %w", err)
 	}
