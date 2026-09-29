@@ -1,6 +1,27 @@
 {{ if .Store.Get "hasMermaid" }}
 <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
+
+    const style = getComputedStyle(document.documentElement);
+    const background = style.getPropertyValue('--background').trim();
+    const foreground = style.getPropertyValue('--foreground').trim();
+    const accent = style.getPropertyValue('--accent').trim();
+
+    mermaid.initialize({
+        startOnLoad: true,
+
+        theme: 'base',
+        themeVariables: {
+            darkMode: true,
+
+            background: background,
+
+            primaryColor: background,
+            primaryTextColor: foreground,
+            
+            noteBkgColor: accent,
+            noteTextColor: background,
+        },
+    });
 </script>
 {{ end }}
