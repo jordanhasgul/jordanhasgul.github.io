@@ -5,6 +5,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"strings"
 
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
@@ -27,6 +28,7 @@ func (Blog) Serve(watch *bool) error {
 }
 
 func (Blog) CreatePost(title string) error {
+	title = strings.Trim(title, " ")
 	if title == "" {
 		return errors.New("title is missing")
 	}
