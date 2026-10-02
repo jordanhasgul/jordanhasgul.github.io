@@ -1,8 +1,6 @@
 ---
-title: "{{ replace .File.ContentBaseName `-` ` ` }}"
-
-date: "{{ .Date }}"
-dateFormat: "2006-01-02"
+title: '{{ replace .File.ContentBaseName "-" " " }}'
+date: '{{ now.UTC.Format "02 Jan, 2006" }}'
 
 draft: true
 ---
