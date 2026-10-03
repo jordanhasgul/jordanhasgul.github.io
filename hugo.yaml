@@ -10,7 +10,10 @@ markup:
     noClasses: false
 
 params:
-  centerTheme: true
   owner: Jordan Hasgul
   logo:
     logoText: "Jordan Hasgul"
+
+  centerTheme: true
+  readingTime: true
+  readMore: "Read more"

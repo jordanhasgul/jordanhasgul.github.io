@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"strings"
+	"time"
 
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
@@ -33,7 +34,10 @@ func (Blog) CreatePost(title string) error {
 		return errors.New("title is missing")
 	}
 
-	file := fmt.Sprintf("posts/%s.md", title)
+	date := time.Now().
+		UTC().
+		Format("2006-01-02")
+	file := fmt.Sprintf("posts/%s-%s.md", date, title)
 	err := sh.RunV("hugo", "new", "content", file)
 	if err != nil {
 		return fmt.Errorf("creating post: %w", err)
